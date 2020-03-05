@@ -13,11 +13,11 @@ public interface IPurchaseDao extends CrudRepository<Purchase, Long> {
 	@Query("SELECT u FROM Purchase u WHERE u.id=:purchaseId")
 	Purchase findByPurchaseId(@Param("purchaseId") Long purchaseId);
 
-	@Query("SELECT p FROM Purchase p WHERE p.couponId=:couponId")
+	@Query("SELECT p FROM Purchase p WHERE p.coupon.id=:couponId")
 	List<Purchase> findPurchasesByCouponId(@Param("couponId") Long couponId);
 
-	@Query("SELECT p FROM Purchase p WHERE p.customerId=:id")
-	List<Purchase> findAllPurchasesByCustomerId(@Param("customerId") Long customerId);
+	@Query("SELECT p FROM Purchase p WHERE p.customer.id=:customerId")
+	List<Purchase> findByCustomerId(@Param("customerId") Long customerId);
 	
     @Query("SELECT COUNT(*) FROM Purchase p")
     Long findTableSize();

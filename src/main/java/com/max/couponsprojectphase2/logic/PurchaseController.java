@@ -46,7 +46,7 @@ public class PurchaseController {
 	}
 
 	public List<Purchase> getAllPurchasesByCustomerId(Long customerId) throws ApplicationException {
-		List<Purchase> purchasesByCustomerId = purchaseDao.findAllPurchasesByCustomerId(customerId);
+		List<Purchase> purchasesByCustomerId = purchaseDao.findByCustomerId(customerId);
 		return purchasesByCustomerId;
 	}
 
